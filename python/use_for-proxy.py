@@ -1,4 +1,4 @@
-
+#Change strings in multiple files 
 import sys
 import time
 
@@ -12,7 +12,8 @@ for i1 in range(2):
         f_back.write(i2)
     
     n=len(m)
-    for i4 in range(n):
+    for i4 in range(n):     
+#Next statement checks 3 characters as we are searching for string 'are'
         if m[i4:i4+3]=='are':
             m_new=m.replace('are','45455555')
             d2=open(filename[i1],'w')
