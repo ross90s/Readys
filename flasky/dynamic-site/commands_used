@@ -1,0 +1,46 @@
+
+This app is same as text-box-name .   The only difference is, we can change the site dynamacally without re-building the docker image.
+
+
+How ?
+
+We mapped the folder app as a volume of container. So any change in the app directory will reflect on the site dynamically .
+
+
+How we mapped? 
+
+We added docker-compose.yml file , in it we mentioned volumes.   
+
+volumes:
+      - ./app:/app
+
+
+
+##### commands used for this app   ################
+
+
+## BUILD the image for app using command below ( in command, 'web' is the name of the service which is defined in docker-compose.yml file ):
+
+docker-compose build web
+
+
+
+## Run the container
+
+docker-compose up
+ 
+
+
+
+-------------  For this app Ignore below commands as it was for old app  ----------------
+
+
+
+
+##### To build the image name text-box . we can give any name 
+
+docker build -t text-box:latest .
+
+### To start the container from the image we created from above command
+
+docker run -d -p 5001:5001 text-box
