@@ -1,0 +1,19 @@
+
+
+#####Prereqisite:
+
+DNS server in resolv.conf 8.8.8.8
+Proxy set in  /home/rchivate/.docker/config.json
+
+
+
+
+##########After adding all the files in folder execute Command:
+docker-compose up
+
+
+
+########## And then access the site that give hit count
+site:
+
+http://10.13.178.30:5000/
