@@ -1,0 +1,9 @@
+
+
+##### To build the image name text-box . we can give any name 
+
+docker build -t text-box:latest .
+
+### To start the container from the image we created from above command
+
+docker run -d -p 5001:5001 text-box
