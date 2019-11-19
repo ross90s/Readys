@@ -1,0 +1,101 @@
+
+#########  in below command 'web' is service name
+#########  'django-admin startproject' is to start new project name 'composeexample'
+#########   This command will create folder project_name in it we will find all imp jango files 
+#########   along with above folder it also creates manage.py,which is command-line utility that lets you interact with this Django project in various ways.   
+
+docker-compose run web django-admin startproject project_name .
+
+
+####### see owners of the files by 
+
+ls -l
+
+######## Let's make current user owner of all files and folders 
+
+sudo chown -R $USER:$USER .
+
+
+######## start containers 
+
+docker-compose up 
+
+
+#### Connect to 
+
+http://0.0.0.0:8000   from browser
+
+#### If not OK , add ip address of host to ALLOWED_HOSTS = ['host_ip'] in seetings.py 
+
+
+####### To print hello world
+
+In django, each project can have multiple apps .
+
+
+so we need one app which will print Hello WORLD
+
+
+step 1:  Keep server turn on and type below command:
+
+docker exec -it only-dj_web_1 python manage.py startapp hello
+
+hello in above command is app name.
+
+Above commad run on the container 'only-dj_web_1' and create the folder 'hello'
+
+
+step 2: Go to project_name/settings.py and add our 'hello' app in it
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'hello'
+]
+
+step 3: change the ownership of the hello app from root to current user
+
+sudo chown -R $USER:$USER .
+
+
+step 4: add the function that print 'Hello WORLD' in app folder 
+
+nano hello/views.py
+
+#####################################
+from django.shortcuts import render
+from django.http import HttpResponse
+# Create your views here.
+
+def myview(request):
+    return HttpResponse('Hello WORLD!!')
+#######################################
+
+'myview' is our own defined function that we need to add in urls.py
+As we used 'HttpResponse' to response request from browser we need to import it from django.http(2nd line)
+
+
+step 5: Add our url in nano project_name/urls.py to access the web page hello world. 
+
+nano nano helojango/urls.py
+###################################
+from django.contrib import admin
+from django.urls import path
+from hello.views import myview
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('sayHello', myview),
+]
+###################################
+What we added is:
+3rd line to import our function 'myview' from views.py of app hello
+
+and urlpatterns path('sayHello', myview)  thats it.
+
+
+
