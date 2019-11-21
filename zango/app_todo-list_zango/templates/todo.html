@@ -1,0 +1,26 @@
+<h1>To do list</h1>
+
+<!--actions such as 'deleteTodo' or 'addTodo' are used in below codes are defined in app_name/views.py -->
+
+
+
+<ul>
+    {% for todo_item in all_items %} <!--For loop start, Read content of db and print, delete button code also lie here to have delete button in front of each item-->   
+      <li>{{ todo_item.content }}           <!--list tag start to list content -->
+        <form action="/deleteTodo/{{todo_item.id}}" 
+              style="display: inline;"  
+              method="post">{% csrf_token %}      <!-- csrf is security token for jango -->
+            <input type="submit" value="Delete"/>
+        </form>
+      </li>
+    {% endfor %}   <!--End of for loop-->
+</ul>
+
+
+
+
+<!--Below form is for textbox and add content button -->
+<form action="/addTodo/" method="post">{% csrf_token %}
+    <input type="text" name="content"/>
+    <input type="submit" value="Add"/>
+</form>
