@@ -1,0 +1,49 @@
+
+#########  in below command 'web' is service name
+#########  'django-admin startproject' is to start new project name 'composeexample'
+#########   This command will create folder composeexample in it we will find all imp jango files 
+#########   along with above folder it also creates manage.py,which is command-line utility that lets you interact with this Django project in various ways.   
+
+docker-compose run web django-admin startproject project_name .
+
+
+####### see owners of the files by 
+
+ls -l
+
+######## Let's make current user owner of all files and folders 
+
+sudo chown -R $USER:$USER .
+
+
+######## start containers 
+
+docker-compose up 
+
+
+#### Connect to 
+
+http://0.0.0.0:8000   from browser
+
+#### If not OK , add ip address of host to ALLOWED_HOSTS = ['host_ip'] in seetings.py 
+
+
+
+###Our goal is create a webpaage that will open the site www.loksatta.com after clicking the button
+
+Whole procedure is there:
+https://www.youtube.com/watch?v=ERMRVORGvZM&t=1087s
+
+
+Below things are not covered in vdo:
+
+Create the template folder in the same directory as buttonpi , NOT in buttonpi but same as buttonpi 
+
+We are getting error saying :
+no module called requests
+
+Using below command requests module will install on the container and error disappear:
+docker exec -it  script_click_web_1 pip install requests
+
+
+
