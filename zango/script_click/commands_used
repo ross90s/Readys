@@ -46,4 +46,5 @@ Using below command requests module will install on the container and error disa
 docker exec -it  script_click_web_1 pip install requests
 
 
-
+##Access the webpage 
+http://10.13.178.30:8000/home/
