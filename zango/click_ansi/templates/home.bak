@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Click 
+        </title>
+    </head>
+    <body>
+        <form action="/external/" method="post"><br><br><br><br>
+            {% csrf_token %}
+           Input Text:
+            <input type="text" name="param" required><br><br>
+            {{data_external}}<br><br><br><br>
+            {{data1}}
+            <br><br>
+            <input type="submit" value="Execute External Script">
+         </form>
+    </body>
+</html>

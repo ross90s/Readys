@@ -1,0 +1,13 @@
+We can delete the multiple paragraphs by searching multiple strings in the file in one click
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!    Before using the following command take the backup of the file because   !!!!!!!!!!!!!!!!! 
+script modifies original file 
+
+
+script serach for the multiple strings, then  delete n above and n below lines of the string. 
+
+To know the script more , compare the files present in the folder with diff -u 
+
+ansible-playbook delete-paragraph.yml
+

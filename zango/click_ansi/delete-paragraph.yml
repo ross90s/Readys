@@ -1,0 +1,11 @@
+- name: a play that runs entirely on the ansible host
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+   - name: Delete defination of un-wanted machines
+     raw: sed -i ':a;N;s/\n/&/4;Ta;/{{ item }}/!{P;D};:b;N;s/\n/&/6;Tb;d' sup_extra_god_cbv4.tpl   
+     with_items: [10.111.205.144,10.111.205.146,10.111.205.150,10.111.205.161,10.111.205.164,10.111.205.167,10.111.205.168,10.111.205.170,10.111.205.181]
+
+# First take bakup and then  run this playbook  
+# Above playbook search for the IPs in file 'sup_extra_god_cbv4.tpl' and delete 2 below and 4 lines above the IP 
+#

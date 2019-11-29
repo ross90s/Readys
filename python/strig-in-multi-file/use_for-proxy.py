@@ -4,11 +4,12 @@ import time
 
 filename=['xyz','nyk']
 
+### Backup 
 for i1 in range(2):
     f1=open(filename[i1],'r')
     m=f1.read()
     f_back=open(filename[i1]+time.strftime("_%Y%m%d-%Hh%M"),'w')
-    for i2 in f1:
+    for i2 in m:
         f_back.write(i2)
     
     n=len(m)
