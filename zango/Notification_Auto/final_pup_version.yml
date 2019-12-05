@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: False
+  serial: 1
+  max_fail_percentage: 0
+  tasks:
+    - name: Collecting puppet version
+      raw: puppet --version
+      register: output
+    - name: display output
+      debug: msg="{{ inventory_hostname }};{{ output.stdout_lines[0] }}"
+    - name: put all the output in the same file
+      local_action:
+        module: lineinfile
+        path: "./puppet_version"
+        line: "{{ ansible_host }};{{ output.stdout_lines[0] }}"
+        create: yes

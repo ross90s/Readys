@@ -1,0 +1,19 @@
+###### Enable notif of  the site & only one machine 
+
+ansible-playbook -l site enable_custom.yml --extra-vars "item=adm-cacti01-bdx1-pr" --ask-vault-pass -k
+
+
+##### If need to disable or enable all notif(host and service) of multiple machines, un-comment playbook & put required multiple machines in the brackets 
+
+ansible-playbook -l site disable_custom_list_machine.yml  --ask-vault-pass -k
+ansible-playbook -l site enable_custom_list_machine.yml  --ask-vault-pass -k
+
+
+
+############# Custom service disable enable ###################
+
+Before applying the playbook change  the service name in the playbook.
+
+ansible-playbook -l lyo2 disable_custom_service.yml --ask-vault-pass -k
+
+
