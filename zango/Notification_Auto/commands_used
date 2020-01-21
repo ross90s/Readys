@@ -137,3 +137,9 @@ wheel        0.33.6
 
 
 Put the ladap paswd in pas.yml for ssh_pass
+
+##### 
+
+After stopping the container , it looses the file /etc/hosts 
+
+so copy it from file etc-hosts in current folder 

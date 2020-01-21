@@ -1,0 +1,38 @@
+[nagios01]
+
+adm-nagios01-abv1-pr    disable_host=abv1-serpe00
+adm-nagios01-bdx1-pr    disable_host=bdx1-serpe00
+adm-nagios01-cbv4-pr    disable_host=cbv4-serpe00
+adm-nagios01-lil1-pr    disable_host=lil1-serpe00
+adm-nagios01-lyo2-pr    disable_host=lyo2-serpe00
+#adm-nagios01-mrs1-pr    disable_host=mrs1-serpe00
+#adm-nagios01-par1-pr    disable_host=par1-serpe00
+adm-nagios01-ren1-pr    disable_host=ren1-serpe00
+adm-nagios01-sbg1-pr    disable_host=sbg1-serpe00
+adm-nagios01-tls1-pr    disable_host=tls1-serpe00
+adm-nagios01-zac1-pr    disable_host=zac1-serpe00-pr
+
+
+[mit1-nagios01]
+
+adm-nagios01-abv1-pr    disable_host=mit1-serpe00
+
+[mit1-nagios00]
+
+adm-nagios00-abv1-pr    disable_host=mit1-serpe00
+
+[nagios00]
+
+adm-nagios00-abv1-pr    disable_host=abv1-serpe00
+adm-nagios00-bdx1-pr    disable_host=bdx1-serpe00
+adm-nagios00-cbv4-pr    disable_host=cbv4-serpe00
+adm-nagios00-lil1-pr    disable_host=lil1-serpe00
+adm-nagios00-lyo2-pr    disable_host=lyo2-serpe00
+#adm-nagios00-mrs1-pr    disable_host=mrs1-serpe00
+#adm-nagios00-par1-pr    disable_host=par1-serpe00
+adm-nagios00-ren1-pr    disable_host=ren1-serpe00
+adm-nagios00-sbg1-pr    disable_host=sbg1-serpe00
+adm-nagios00-tls1-pr    disable_host=tls1-serpe00
+adm-nagios00-zac1-pr    disable_host=zac1-serpe00-pr
+
+

@@ -36,32 +36,14 @@
             
             <form action="/start_notif/" method="post">
 			    {% csrf_token %}
-                Site:
-                <select name="site" id="site">
-                        <option value=""></option>
-                        <option value="abv1">abv1</option>
-                        <option value="bdx1">bdx1</option>
-                        <option value="bou2">bou2</option>
-                        <option value="cbv3">cbv3</option>
-                        <option value="cbv4">cbv4</option>
-                        <option value="dij1">dij1</option>
-                        <option value="lil1">lil1</option>
-                        <option value="lyo1">lyo1</option>
-                        <option value="lyo2">lyo2</option>
-                        <option value="mrs1">mrs1</option>
-                        <option value="par1">par1</option>
-                        <option value="ren1">ren1</option>
-                        <option value="sbg1">sbg1</option>
-                        <option value="tls1">tls1</option>
-                        <option value="zac1">zac1</option>                        
-                </select><br><br>
-                
-                Username <input type="text" name="user" placeholder="ldap" required><br>
-                Password &nbsp;<input type="password" name="paswd" placeholder="ldap" required><br>
+                Site: 
+                <input type="text" name="site" required><br><br>
+                Username <input type="text" name="user" required><br>
+                Password &nbsp;<input type="password" name="paswd" required><br>
                 {{data_external}}
                 {{data1}}<br>
 				<button type="submit" class="btn btn-outline-success">Enable Notif</button><br><br>
-                <button type="submit" class="btn btn-outline-danger" formaction="/stop_notif/">Disable Notif</button><br>
+                <button type="submit" class="btn btn-outline-danger" formaction="/stop_notif/">Disable Notif</button><br><br>
             </form>
 
 

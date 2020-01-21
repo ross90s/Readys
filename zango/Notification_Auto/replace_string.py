@@ -14,7 +14,7 @@ for i1 in range(len(filename)):
     
     n=len(m)
     for i4 in range(n):     
-#Next statement checks 3 characters as we are searching for string 'are'
+#Next statement checks 11 characters as we are searching for string 'are'
         if m[i4:i4+11]=='text_change':
             m_new=m.replace('text_change',sys.argv[1])
             d2=open(filename[i1],'w')
