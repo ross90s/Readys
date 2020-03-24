@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Button script
+        </title>
+    </head>
+    <body>
+        <form action="/external/" method="post">
+            {% csrf_token %}
+            Input Machines:
+            <input type="text" name="param" required><br><br>
+            {{data_external}}<br><br>
+            {{data1}}
+            <br><br>
+            <input type="submit" value="Execute External Python Script">
+        </form>
+        <br><br>
+        <form action="/command/" method="post">
+            {% csrf_token %}
+            Site:
+            <input type="text" name="site" required><br><br>
+            {{data_external}}<br><br>
+            {{data2}}
+            <br><br>
+            <input type="submit" value="Pass command">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+[nagios01]
+
+adm-nagios01-abv1-pr    disable_host=abv1-serpe00
+
+

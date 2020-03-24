@@ -1,0 +1,10 @@
+
+.jumbotron {
+    height: 250px;
+    }
+
+div.relative {
+  position: relative;
+  left: 0px;
+  top: 10px;
+}

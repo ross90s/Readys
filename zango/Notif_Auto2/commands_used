@@ -1,0 +1,148 @@
+
+#########  in below command 'web' is service name
+#########  'django-admin startproject' is to start new project name 'composeexample'
+#########   This command will create folder composeexample in it we will find all imp jango files 
+#########   along with above folder it also creates manage.py,which is command-line utility that lets you interact with this Django project in various ways.   
+
+docker-compose run web django-admin startproject project_name .
+
+
+####### see owners of the files by 
+
+ls -l
+
+######## Let's make current user owner of all files and folders 
+
+sudo chown -R $USER:$USER .
+
+
+######## start containers 
+
+docker-compose up 
+
+
+#### Connect to 
+
+http://0.0.0.0:8000   from browser
+
+#### If not OK , add ip address of host to ALLOWED_HOSTS = ['host_ip'] in seetings.py 
+
+#######
+
+Create the template folder in the same directory as buttonpi , NOT in buttonpi but same as buttonpi 
+#############
+We are getting error saying :
+no module called requests
+
+Using below command requests module will install on the container and error disappear:
+docker exec -it  script_click_web_1 pip install requests
+
+
+
+#################
+Extenal script keep in project_name folder 
+
+###############
+To check if there is any check on the configuration use:
+
+docker exec -it  my_click_web_1 python manage.py migrate
+
+#########
+
+Run playbook by button.
+
+#### 
+
+Install ansible on container :
+
+docker exec -it  my_click_web_1 pip install ansible
+
+####
+
+We added enable.py and disable.py in views.py to execute after clicking button 'Enable Notif' or 'Disable Notif'
+
+#### 
+
+pass_command.py run the playbook delete-paragraph.yml
+
+## 
+
+
+What do site?
+
+Put Machines in text box.
+Press button 'Load machines'.
+Load machines will trigger 'external' function defined in views.py.
+Input inserted in above text box is taken by 'request.POST.get('param')' and storen in 'inp'
+This 'inp' is passed as 1st argument for "replace_string.py" 
+replace_string.py replace the 'text_change' string in files "enable_custom_list_machine.yml" and "disable_custom_list_machine.yml"  
+
+
+Now it is time to put site in text box
+After putting "site" if we clicked on button "Disable Notif"
+-stop_notif funtion is called 
+-which get the site name in "request.POST.get('site')" and store in "inp2"
+-This site name is passed as 1st argument for 'disable.py'
+-Which later used for the command 'ansible-playbook -l %s disable_custom_list_machine.yml' in place of %s
+-disable_custom_list_machine.yml we get it from 'external' function as explained in above paragraph 
+-This playbook disable the notifications 
+- Then the functions in disable.py "rollback1" and "rollback2" are execute  
+- Which bring back the original files "enable_custom_list_machine.yml" and "disable_custom_list_machine.yml" with string "text_change" for further operations 
+
+
+
+####home.html
+
+In this file we can see the relations between button name and triggered functions.
+
+Like button "Load machines" and function "external" are defined in one form.
+
+2nd form conain
+
+single input "site" along with 2 functions 'start_notif' and 'stop_notif' 
+These functions called when the corresponding buttons 'Enable_notif' and 'disable_notif' are clicked.
+
+
+#####cat etc/hosts contains nagios info to as we only pass the machine names through 'all_nagios_group_list'
+
+##### If docker is stopped it loses the /etc/hosts info on the container and disable or enable buttons dont work 
+For functioning the button it is important to copy etc-hosts file to /etc/hosts of the container
+
+###### ansible.cfg has importnat config required to run the ansible playbooks  
+
+
+#######Docker container has following pip packages along with sshpass installed using apt-get :
+pip list -l
+
+Package      Version   
+------------ ----------
+ansible      2.9.1     
+certifi      2019.11.28
+cffi         1.13.2    
+chardet      3.0.4     
+cryptography 2.8       
+Django       2.2.7     
+idna         2.8       
+Jinja2       2.10.3    
+MarkupSafe   1.1.1     
+pip          19.3.1    
+pycparser    2.19      
+pytz         2019.3    
+PyYAML       5.1.2     
+requests     2.22.0    
+setuptools   42.0.2    
+six          1.13.0    
+sqlparse     0.3.0     
+urllib3      1.25.7    
+wheel        0.33.6    
+
+#####
+
+
+Put the ladap paswd in pas.yml for ssh_pass
+
+##### 
+
+After stopping the container , it looses the file /etc/hosts 
+
+so copy it from file etc-hosts in current folder 

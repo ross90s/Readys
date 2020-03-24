@@ -1,0 +1,13 @@
+---
+- hosts: all
+  gather_facts: False
+  serial: 1
+  name: Execute a script.
+  remote_user: rchivate
+  #become: True
+  vars_files:
+    - pas.yml
+  tasks:
+     
+     - name: Disable one service of all serpe host
+       raw: curl -u rchivate:{{ ssh_pass }} -d "cmd_typ=22&cmd_mod=2&host={{ disable_host }}&service=Check_canal_maritima&btnSubmit=Commit" "http://{{ inventory_hostname }}/nagios3/cgi-bin/cmd.cgi"

@@ -1,0 +1,16 @@
+#### For selected groups use this commands ########
+Group list
+nagios00
+nagios01
+mit1-nagios01
+mit1-nagios00
+
+
+
+ansible-playbook  -l nagios00 disable_notif.yml -k --ask-vault-pass
+
+
+
+ansible-playbook disable_notif.yml -k --ask-vault-pass
+
+ansible-playbook enable_notif.yml -k --ask-vault-pass
