@@ -16,7 +16,8 @@ ls -l
 sudo chown -R $USER:$USER .
 
 
-######## start containers 
+######## If the container is stopped by accident start it using below command 
+######### in current directory ie ~/github/my_click 
 
 docker-compose up 
 
@@ -97,17 +98,20 @@ In this file we can see the relations between button name and triggered function
 
 Like button "Load machines" and function "external" are defined in one form.
 
-2nd form conain
+2nd form contain
 
 single input "site" along with 2 functions 'start_notif' and 'stop_notif' 
 These functions called when the corresponding buttons 'Enable_notif' and 'disable_notif' are clicked.
 
 
-#####cat etc/hosts contains nagios info to as we only pass the machine names through 'all_nagios_group_list'
+#####cat etc/hosts contains nagios info ,as we only pass the machine names through 'all_nagios_group_list'
 
 ##### If docker is stopped it loses the /etc/hosts info on the container and disable or enable buttons dont work 
-For functioning the button it is important to copy etc-hosts file to /etc/hosts of the container
+#####  For functioning the button it is important to copy etc-hosts file to /etc/hosts of the container
+##### To do it access the container using 
+docker exec -it my_click_web_1 bash
 
+##### and then manually copy etc-hosts file in current folder to /etc/hosts of the container
 ###### ansible.cfg has importnat config required to run the ansible playbooks  
 
 
