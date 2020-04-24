@@ -1,0 +1,21 @@
+1st 3 steps are mandatory for docker container,  4th step is specific for this project. 
+
+Step 1:
+Prepare Dockerfile, requirements.txt , docker-compose.yml
+Step 2:
+Then use command:  docker-compose up 
+Step 3:
+The container will be running as long as that process the command started is running. 
+Once the process is completed and exits then the container will stop and exit. 
+So if container exited because of the above reason , we can access it using below command:
+docker run -it image_name /bin/bash 
+
+Step 4:
+
+In final.py file we insert Account_23-04-2020.xlsx as input . 
+
+Along with above file , we also insert blank op_account.xlsx.
+
+After executing final.py, we will get 3 different tables in op_account.xlsx.  
+
+
