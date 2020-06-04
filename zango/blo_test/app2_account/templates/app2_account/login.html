@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h3>Login</h3>
+<form class="site-form" action="{% url 'app2_account:login' %}" method="post">
+    <!-- csrf_token is security feature,which tell that,
+     request is coming from our own server and not any threat -->
+    {% csrf_token %}
+    <!-- 'form' var defined in views.py in dict -->
+    {{ form }}
+    <!-- So now all the fields in Authentication form  are ready
+    now we need to 'submit' this fields to server, which is below end -->
+    <!-- check if 'next' query paramtr exist,if yes pass 'value' which will be collected in views.py  -->
+    {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% endif %}
+    <input type="submit" value="Login">
+
+</form>
+
+{% endblock %}

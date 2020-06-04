@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h3>Signup</h3>
+<form class="site-form" action="/app2_account/signup/" method="post">
+    <!-- csrf_token is security feature,which tell that,
+     request is coming from our own server and not any threat -->
+    {% csrf_token %}
+    <!-- 'form' var defined in views.py in dict -->
+    {{ form }}
+    <!-- So now all the fields in form are ready
+    now we need to 'submit' this fields to server, which is below -->
+    <input type="submit" value="Signup">
+
+</form>
+
+{% endblock %}

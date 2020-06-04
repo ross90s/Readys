@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h1>Article List</h1>
+<div class="articles"><!--'articles' is just div name,it can be anything--> 
+    {% for i in var1 %}<!--for loop to get every element of db table--> 
+    <!--var1 is the variable declared in views.py in dictionary to access each element of db table--> 
+        <div class="article"><!--'i' just div name,can be anything-->
+            <!--below app1 is app name from whicj article_detail url is called--> 
+            <h2><a href="{% url 'app1:article_detail' slug=i.slug %}">{{i.title}}</a></h2><!--i is the variable in the loop used to acces each element of every column--> 
+            <p>{{i.snippet}}</p><!--get every element of column body--> 
+            <p>{{i.date}}</p><!--get every element of column date--> 
+            <p class="author"> added by {{ i.author.username }}</p>
+        </div> 
+    {% endfor %}<!--end of for loop--> 
+</div>  
+{% endblock %}
