@@ -9,7 +9,7 @@ from openpyxl.styles import Font
 
 wb=openpyxl.load_workbook('ExportList_esxi_dns.xlsx') #File1 with checking column
 wb2=openpyxl.load_workbook('Audit VMware DNS Prod v1.0.xlsx') #File2 with we compare
-sh=wb['ExportList_esxi_dns'] 
+sh=wb['ExportList_esxi_dns'] # Sheet of file1
 sh2=wb2['GlobalSite']
 
 def for_ok():
